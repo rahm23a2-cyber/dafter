@@ -684,10 +684,9 @@ function printInv(kind,id){
     +'<div class="pr-foot">شكراً لتعاملكم معنا</div></div>';
   $('#print').innerHTML=html;
   const old=document.title; document.title=(isS?'فاتورة-':'مشتريات-')+(x.no||x.date);
-  const done=()=>{ window.removeEventListener('afterprint',done); $('#print').innerHTML=''; document.title=old; };
-  window.addEventListener('afterprint',done);
+  setTimeout(()=>{ document.title=old; },60000);
   toast('اختر «حفظ كـ PDF» من خيارات الطابعة');
-  setTimeout(()=>window.print(),150);
+  setTimeout(()=>window.print(),400);
 }
 
 /* ---------- settings ---------- */
